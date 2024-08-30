@@ -53,7 +53,7 @@ function Blogs() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="ri-share-box-line text-gray-300"></i>
+                  <i className="ri-share-box-line text-gray-300 hover:text-white"></i>
                 </a>
               )}
             </div>

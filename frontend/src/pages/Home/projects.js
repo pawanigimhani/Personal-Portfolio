@@ -48,7 +48,7 @@ function Projects() {
             <p className="text-white sm:text-sm">
               Tech Stack: {project[selectedIndex].techstack.join(" , ")}
             </p>
-            <div className="flex flex-row gap-3 sm:justify-center">
+            <div className="flex flex-row gap-3 sm:justify-center hover:text-white">
               {project[selectedIndex].link && (
                 <a
                   href={project[selectedIndex].link}
@@ -65,7 +65,7 @@ function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="ri-share-box-line text-gray-300"></i>
+                  <i className="ri-share-box-line text-gray-300"></i>
                 </a>
               )}
             </div>

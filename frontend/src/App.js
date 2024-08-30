@@ -14,7 +14,7 @@ function App() {
   const getPortfolioData = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}api/portfolio/get-data`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/get-data`);
       dispatch(SetPortfloioData(response.data));
       dispatch(ReloadData(false));
       dispatch(HideLoading());

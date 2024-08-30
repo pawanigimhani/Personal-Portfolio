@@ -67,7 +67,7 @@ function Home() {
             id="blogs-section"
             ref={blogsRef}
             initial="hidden"
-            animate={projectsInView ? "visible" : "hidden"}
+            animate={blogsInView ? "visible" : "hidden"}
             variants={sectionVariants}
           >
             <Blogs />

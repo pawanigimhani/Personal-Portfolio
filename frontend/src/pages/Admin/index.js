@@ -17,6 +17,14 @@ function Admin() {
     }
   }, []);
 
+  const tabItems = [
+    { key: "1", label: "About", children: <AdminAbout /> },
+    { key: "2", label: "Intro", children: <AdminIntro /> },
+    { key: "3", label: "Projects", children: <AdminpProj /> },
+    { key: "4", label: "Blogs", children: <AdminBlog /> },
+    { key: "5", label: "Contact", children: <AdminContact /> },
+  ];
+
   return (
     <div>
       <Header />
@@ -34,22 +42,7 @@ function Admin() {
       </div>
       {portfolioData && (
         <div className="mt-5 p-5">
-          <Tabs defaultActiveKey="1">
-            <Tabs.TabPane tab="About" key="1">
-              <AdminAbout />
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Intro" key="2">
-              <AdminIntro />
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Projects" key="3">
-              <AdminpProj />
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Blogs" key="4">
-              <AdminBlog />
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Contact" key="5">
-              <AdminContact />
-            </Tabs.TabPane>
+          <Tabs defaultActiveKey="1" items={tabItems}>
           </Tabs>
         </div>
       )}
