@@ -15,6 +15,7 @@ function App() {
     try {
       dispatch(ShowLoading());
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/get-data`);
+      console.log(response.data);
       dispatch(SetPortfloioData(response.data));
       dispatch(ReloadData(false));
       dispatch(HideLoading());
@@ -26,13 +27,13 @@ function App() {
     if (!portfolioData) {
       getPortfolioData();
     }
-  }, [portfolioData]);
+  }, [portfolioData, getPortfolioData]);
 
   React.useEffect(()=>{
     if(reloadData){
       getPortfolioData();
     }
-  }, [reloadData]);
+  }, [reloadData, getPortfolioData]);
 
   return (
       <BrowserRouter>
