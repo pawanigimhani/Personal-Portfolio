@@ -1,25 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-   
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    
-    <title>Pawani - Dev </title>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <title>Pawanee Gimhanee </title>
+
+  <style>
+
+    body {
+      cursor: none;
+    }
+
+    .mouse-trail {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(36, 154, 156, 0.7);
+      border-radius: 50%;
+      pointer-events: none;
+      transition: transform 0.1s ease-out opacity 0.3s ease-out;
+      opacity: 1;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="mouse-trail"></div>
+
+  <script>
+    let timeout;
+
+    document.addEventListener("mousemove", function (e) {
+      const mouseTrail = document.querySelector(".mouse-trail");
+
+      mouseTrail.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+
+      mouseTrail.style.opacity = "1";
+
+      clearTimeout(timeout);
+
+      timeout = setTimeout(function () {
+        mouseTrail.style.opacity = "0";
+      }, 500);
+    });
+  </script>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+
 </html>

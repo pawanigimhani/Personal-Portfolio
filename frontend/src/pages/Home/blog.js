@@ -19,7 +19,7 @@ function Blogs() {
               key={index}
             >
               <h1
-                className={`text-xl sm:text-lg px-5 sm:py-3
+                className={`text-xl sm:text-base px-5 sm:py-3 sm:px-1 hover:text-secondary
                         ${
                           selectedIndex === index
                             ? "text-secondary border-secondary border-l-4 sm:border-l-0 sm:bg-transparent -ml-[3px] bg-[#1c9a896c] py-3"
@@ -45,7 +45,7 @@ function Blogs() {
               </h1>
               <hr className="w-auto opacity-25"></hr>
             </div>
-            <p className="text-white sm:text-sm sm:justify-center">{blog[selectedIndex].description}</p>              
+            <p className="text-white sm:text-sm sm:justify-center opacity-90 h-[165px] overflow-y-auto sm:h-auto sm:overflow-y-hidden">{blog[selectedIndex].description}</p>              
               {blog[selectedIndex].link &&
               (
                 <a

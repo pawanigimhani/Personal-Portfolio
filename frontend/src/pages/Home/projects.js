@@ -19,7 +19,7 @@ function Projects() {
               key={index}
             >
               <h1
-                className={`text-xl sm:text-lg px-5 sm:py-3
+                className={`text-xl sm:text-base px-5 sm:py-3 sm:px-1 hover:text-secondary
                         ${
                           selectedIndex === index
                             ? "text-secondary border-secondary border-l-4 sm:border-l-0 sm:bg-transparent -ml-[3px] bg-[#1c9a896c] py-3"
@@ -37,17 +37,20 @@ function Projects() {
             alt="project"
             className="w-60 h-50 hover:scale-105 hover:shadow-lg hover:shadow-teal-700 transition-all duration-300"
           />
-          <div className=" flex flex-col gap-5 sm:text-center">
+          <div className=" flex flex-col gap-5 sm:text-center h-[350px] sm:h-auto">
             <div className="flex flex-col sm:text-center">
               <h1 className="text-white text-xl sm:text-lg mb-1">
                 {project[selectedIndex].title}
               </h1>
               <hr className="w-auto opacity-25"></hr>
             </div>
-            <p className="text-white sm:text-sm">{project[selectedIndex].description}</p>
-            <p className="text-white sm:text-sm">
-              Tech Stack: {project[selectedIndex].techstack.join(" , ")}
+            <p className="text-white opacity-90 sm:text-sm h-[350px] overflow-y-auto sm:h-auto sm:overflow-y-hidden">{project[selectedIndex].description}</p>
+          <div>
+          <p className="text-white sm:text-sm mb-2 mt-3 sm:mt-0">
+              Tech Stack</p>
+              <p className="text-white opacity-90 text-sm">{project[selectedIndex].techstack.join(" , ")}
             </p>
+          </div>
             <div className="flex flex-row gap-3 sm:justify-center hover:text-white">
               {project[selectedIndex].link && (
                 <a

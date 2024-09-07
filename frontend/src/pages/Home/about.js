@@ -34,7 +34,7 @@ function About() {
         <div className="flex flex-wrap gap-10 sm:gap-5 mt-5 sm:my-6">
           {skill.map((tech) => (
             <div
-              className="text-white border border-white py-3 px-10 sm:px-5 sm:py-2 sm:text-sm rounded hover:bg-white hover:text-primary hover:scale-105 hover:shadow-lg transition-all duration-300"
+              className="text-white border border-white py-3 px-10 sm:px-5 sm:py-2 sm:text-sm rounded hover:bg-slate-100 hover:text-primary hover:scale-105 hover:shadow-lg transition-all duration-300"
               key={tech}
             >
               <h1>{tech}</h1>
