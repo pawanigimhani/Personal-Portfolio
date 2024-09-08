@@ -28,7 +28,7 @@ function Intro() {
         <img
           src="me.png"
           alt="intro"
-          className="w-full sm:h-full h-[90vh] object-cover pb-10 sm:pb-0"
+          className="w-full sm:h-full h-[90vh] object-cover pb-10 sm:pb-0 floating-image"
         />
       </div>
     </div>
