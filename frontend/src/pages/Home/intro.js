@@ -17,12 +17,12 @@ function Intro() {
         </h1>
         <p className="text-white w-3/5 text-sm sm:text-center">{description || "No discription"}</p>
         <a
-            href="resume.pdf"
-            download
-            className="border-secondary text-secondary border-2 px-10 py-3 rounded sm:text-sm sm:py-2 sm:px-5 hover:bg-slate-100 hover:border-white hover:text-primary hover:scale-105 hover:shadow-lg transition-all duration-300"
-          >
-             Resume
-          </a>
+          href="resume.pdf"
+          download
+          className="border-secondary text-secondary border-2 px-10 py-3 rounded sm:text-sm sm:py-2 sm:px-5 hover:bg-slate-100 hover:border-white hover:text-primary hover:scale-105 hover:shadow-lg transition-all duration-300"
+        >
+          Resume
+        </a>
       </div>
       <div>
         <img

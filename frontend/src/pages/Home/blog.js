@@ -1,66 +1,62 @@
-import { React, useState } from "react";
+import React from "react";
 import SectionTitle from "../../components/SectionTitle";
 import { useSelector } from "react-redux";
 
 function Blogs() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const { portfolioData } = useSelector((state) => state.root);
   const blog = portfolioData?.blog || [];
 
   return (
-    <div>
+    <div className="py-12 sm:py-6">
       <SectionTitle title="Blogs" />
-      <div className="flex py-10 gap-32 sm:gap-20 sm:flex-col">
-        <div className="flex flex-col gap-10 border-l-2 sm:border-l-0 border-[#178072] w-1/3 sm:flex-row sm:overflow-x-scroll sm:w-full">
-          {blog.map((blog, index) => (
-            <div
-              onClick={() => setSelectedIndex(index)}
-              className="cursor-pointer"
-              key={index}
-            >
-              <h1
-                className={`text-xl sm:text-base px-5 sm:py-3 sm:px-1 hover:text-secondary
-                        ${
-                          selectedIndex === index
-                            ? "text-secondary border-secondary border-l-4 sm:border-l-0 sm:bg-transparent -ml-[3px] bg-[#1c9a896c] py-3"
-                            : "text-white"
-                        }`}
-              >
-                {blog.title}
-              </h1>
-            </div>
-          ))}
-        </div>
-        {blog.length > 0 && (
-        <div className="flex items-center justify-center gap-10 sm:flex-col w-10/12 sm:w-full">
-          <img
-            src={blog[selectedIndex].image}
-            alt="project"
-            className="w-60 h-50 hover:scale-105 hover:shadow-lg hover:shadow-teal-700 transition-all duration-300"
-          />
-          <div className=" flex flex-col gap-5 sm:text-center">
-            <div className="flex flex-col sm:text-center">
-              <h1 className="text-white text-xl sm:text-lg mb-1">
-                {blog[selectedIndex].title}
-              </h1>
-              <hr className="w-auto opacity-25"></hr>
-            </div>
-            <p className="text-white sm:text-sm sm:justify-center opacity-90 h-[165px] overflow-y-auto sm:h-auto sm:overflow-y-hidden">{blog[selectedIndex].description}</p>              
-              {blog[selectedIndex].link &&
-              (
-                <a
-                  href={blog[selectedIndex].link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="ri-share-box-line text-gray-300 hover:text-white"></i>
-                </a>
+      
+      <div className="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 mt-10">
+        {blog.map((item, index) => (
+          <div 
+            key={index}
+            className="flex flex-col bg-[#132c3f]/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_10px_30px_rgba(58,186,154,0.15)] hover:scale-[1.02] hover:border-secondary/20 transition-all duration-300 group"
+          >
+            {item.image && (
+              <div className="relative overflow-hidden h-48 w-full">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+              </div>
+            )}
+            <div className="p-6 flex flex-col justify-between flex-grow gap-4">
+              <div className="flex flex-col gap-2">
+                <span className="text-secondary text-xs font-semibold uppercase tracking-wider">
+                  Tech Article
+                </span>
+                <h3 className="text-white text-xl font-bold tracking-tight line-clamp-1 group-hover:text-secondary transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed line-clamp-3">
+                  {item.description}
+                </p>
+              </div>
+              
+              {item.link && (
+                <div className="pt-2">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-secondary hover:text-white text-sm font-semibold transition-colors duration-300"
+                  >
+                    <span>Read Article</span>
+                    <i className="ri-arrow-right-line transition-transform duration-300 group-hover:translate-x-1"></i>
+                  </a>
+                </div>
               )}
             </div>
           </div>
-        )}
-        </div>
+        ))}
       </div>
+    </div>
   );
 }
 
