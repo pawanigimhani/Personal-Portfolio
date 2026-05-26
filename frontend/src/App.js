@@ -11,7 +11,7 @@ import Login from './pages/Admin/login';
 function App() {
   const {loading, portfolioData, reloadData} = useSelector((state) => state.root);
   const dispatch = useDispatch();
-  const getPortfolioData = async () => {
+  const getPortfolioData = React.useCallback(async () => {
     try {
       dispatch(ShowLoading());
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/get-data`);
@@ -22,7 +22,7 @@ function App() {
     } catch (error) {
       dispatch(HideLoading());
     }
-  }
+  }, [dispatch]);
   React.useEffect(() => {
     if (!portfolioData) {
       getPortfolioData();
